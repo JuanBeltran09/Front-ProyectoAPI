@@ -1,4 +1,10 @@
 /* src/index.css */
+.bg-primary {
+    position: sticky; /* La barra se queda fija en la parte superior */
+    top: 0;
+    z-index: 1000; /* Asegura que quede encima de otros elementos */
+  }
+  
 .card {
     border: 2px solid #ccc;
     transition: transform 0.3s;

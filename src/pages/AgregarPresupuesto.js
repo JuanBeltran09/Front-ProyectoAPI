@@ -9,14 +9,12 @@ const AgregarPresupuesto = () => {
   const [montoTotal, setMontoTotal] = useState("");
   const [montoAsignado, setMontoAsignado] = useState("");
   const [fechaCreacion, setFechaCreacion] = useState("");
-  const [alertas, setAlertas] = useState(false);
-  const [mensaje, setMensaje] = useState("");
   const navigate = useNavigate();
+  const [mensaje, setMensaje] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validaciones personalizadas
     if (!nombre || !montoTotal || !montoAsignado || !fechaCreacion) {
       setMensaje("Todos los campos son obligatorios");
       return;
@@ -33,19 +31,17 @@ const AgregarPresupuesto = () => {
         montoTotal: parseFloat(montoTotal),
         montoAsignado: parseFloat(montoAsignado),
         fechaCreacion: new Date(fechaCreacion),
-        alertas,
+        alertas: true, // Activar alertas por defecto
       };
 
       await createPresupuesto(token, newPresupuesto);
       setMensaje("Presupuesto creado exitosamente");
-      
-      // Redirigir al Dashboard después de 2 segundos
       setTimeout(() => {
         navigate("/dashboard");
       }, 2000);
     } catch (error) {
       console.error("Error al crear presupuesto:", error);
-      setMensaje("Error al crear el presupuesto. Inténtalo de nuevo.");
+      setMensaje("No se pudo crear el presupuesto");
     }
   };
 
@@ -107,18 +103,6 @@ const AgregarPresupuesto = () => {
             onChange={(e) => setFechaCreacion(e.target.value)}
             required
           />
-        </div>
-        <div className="mb-3 form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="alertas"
-            checked={alertas}
-            onChange={(e) => setAlertas(e.target.checked)}
-          />
-          <label className="form-check-label" htmlFor="alertas">
-            Activar Alertas
-          </label>
         </div>
         <div className="d-flex justify-content-between">
           <button type="button" className="btn btn-secondary" onClick={() => navigate("/dashboard")}>
