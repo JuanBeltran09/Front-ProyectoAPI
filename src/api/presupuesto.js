@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/presupuestos";
+const API_URL = "https://api-presupuestos-6dce377b170c.herokuapp.com/presupuestos";
 
 // Obtener todos los presupuestos
 export const getPresupuestos = async (token) => {

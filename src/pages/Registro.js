@@ -12,7 +12,7 @@ const Registro = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:4000/usuarios/register", {
+      const response = await fetch("https://api-presupuestos-6dce377b170c.herokuapp.com/usuarios/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, email, password }),
