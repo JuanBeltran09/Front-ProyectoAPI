@@ -1,0 +1,20 @@
+/* src/index.css */
+.card {
+    border: 2px solid #ccc;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card.red {
+    background-color: red;
+    color: white;
+  }
+  
+  .card.yellow {
+    background-color: yellow;
+    color: black;
+  }
+  
